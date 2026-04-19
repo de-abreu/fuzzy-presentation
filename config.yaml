@@ -1,0 +1,33 @@
+bindings:
+  execute_code:
+  - e
+  next:
+  - ç
+  - k
+  - <right>
+  - <down>
+  - ' '
+  previous:
+  - j
+  - l
+  - <left>
+  - <up>
+  reload:
+  - r
+defaults:
+  theme:
+    name: stylix
+options:
+  end_slide_shorthand: true
+  implicit_slide_ends: true
+  list_item_newlines: 2
+snippet:
+  exec:
+    enable: true
+  exec_replace:
+    enable: true
+transition:
+  duration_millis: 750
+  frames: 45
+  animation:
+    style: slide_horizontal

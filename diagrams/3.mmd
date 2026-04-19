@@ -1,0 +1,51 @@
+flowchart TB
+
+    START(( )) --> SEL[select a knowledge base]
+
+    subgraph KAS [Knowledge Acquisition]
+        direction TB
+        SPM[System Properties<br>Management Module]
+        OM[Objects<br>Management Module]
+        RM[Rules<br>Management Module]
+        FTM[Fuzzy Terms<br>Management Module]
+        FM[Facts<br>Management Module]
+
+        OM <--> RM
+        OM <--> FM
+        FM <--> FTM
+        RM <--> FTM
+    end
+
+    FKB[Fuzzy<br>Knowledge<br>Base]
+
+    subgraph CD [Consultation Driver]
+        direction LR
+        IE[Inference Engine]
+        LAR[Linguistic Approximation<br>Routine]
+        RMM[Review<br>Management Module]
+        IE --> LAR --> RMM
+    end
+
+    %% --- CONTROL FLOW (solid, bidirectional) ---
+    SEL <--> SPM
+    SEL <--> RM
+    SEL <--> OM
+    SEL <--> FTM
+    SEL <--> FM
+    SEL --> IE
+    RMM --> SEL
+
+    %% --- DATA FLOW (dotted, bidirectional) ---
+    SPM <-.-> FKB
+    RM <-.-> FKB
+    OM <-.-> FKB
+    FTM <-.-> FKB
+    FM <-.-> FKB
+    IE <-.-> FKB
+    RMM <-.-> FKB
+
+    %% Apply dashed pattern and color to data flow links (indices 14-20)
+    linkStyle 14,15,16,17,18,19,20 stroke:#dfab25,stroke-dasharray: 2 2
+
+    %% === HIGHLIGHT ===
+    style FTM stroke:#dfab25,stroke-width:6px,fill:#422b00,color:#fff

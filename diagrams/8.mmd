@@ -1,0 +1,15 @@
+graph TD
+    %% Node Definitions
+    H1["H1<br/>object - (PERSON WEIGHT)<br/>rules - (rule01,...)<br/>..."]
+    C1["C1<br/>AND"]
+    C2["C2<br/>OR"]
+    H2["H2<br/>object - (PERSON NIL)<br/>..."]
+    H3["H3<br/>object - (BODY NIL)<br/>..."]
+    H4["H4<br/>object - (HEIGHT NIL)<br/>..."]
+
+    %% Connections
+    H1 -- rule01 --> C1
+    C1 --> C2
+    C1 --> H2
+    C2 --> H3
+    C2 --> H4
