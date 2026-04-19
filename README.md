@@ -11,7 +11,7 @@ the presentation itself.
 >
 > You can have a sense (with no videos, transitions, pauses nor interactivity)
 > of how the presentation would appear by looking at its
-> [exported pdf version](https://raw.githubusercontent.com/de-abreu/sensors-presentation/refs/heads/main/embedded-systems-presentation.pdf).
+> [exported pdf version](https://github.com/de-abreu/fuzzy-presentation/blob/main/fuzzy-presentation.pdf).
 
 ## How to run
 
