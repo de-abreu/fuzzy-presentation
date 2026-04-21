@@ -11,30 +11,14 @@ theme:
 
 # Table of Contents
 
+<!--incremental_lists: true-->
+
 - Summary
-
-<!--pause-->
-
 - A Brief Introduction to Expert Systems
-
-<!--pause-->
-
 - Heuristics and Inexact Knowledge
-
-<!--pause-->
-
 - Approaches to Uncertainty
-
-<!--pause-->
-
 - System Z-II's approach to vagueness
-
-<!--pause-->
-
 - System Z-II's architecture
-
-<!--pause-->
-
 - Working example
 
 ---

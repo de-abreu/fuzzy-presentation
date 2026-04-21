@@ -15,29 +15,25 @@ the presentation itself.
 
 ## How to run
 
-### Using [Nix Flakes](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html)
+### Using Nix Flakes
+
+With [nix installed](https://nixos.org/download/) and
+[flakes enabled](https://nixos.wiki/wiki/flakes), execute the following command
+in your terminal:
 
 ```bash
 nix run github:de-abreu/fuzzy-presentation
 ```
 
-> [!NOTE]
->
-> This way all data will be stored in your nix-store and later garbage collected
-> automatically (if garbage collection is setup).
+You might also setup presenterm options as arguments:
 
-### Using [devenv](https://devenv.sh/)
-
-```bash
-git clone github:de-abreu/fuzzy-presentation \
-&& cd sensors-presentation \
-&& devenv shell -- run
+```
+nix run github:de-abreu/fuzzy-presentation -- --theme gruvbox-dark
 ```
 
 > [!NOTE]
 >
-> To enter a development environment instead of just running the presentation,
-> drop the `-- run` when using `devenv shell`.
+> For more information on presenterm options, check `presenterm --help`
 
 ### Using whichever package manager is supported by your distribution
 
