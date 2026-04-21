@@ -3,9 +3,8 @@
 > A presentation held at the Timișoara Polytechnic University in 17 of April,
 > 2026
 
-This repository hosts the contents of the presentation and its complimentary
-flake and devenv configuration to replicate the tools and configuration used for
-the presentation itself.
+This repository hosts the contents of the presentation and a complimentary nix
+flake to replicate the tools and configuration used for the presentation itself.
 
 > [!NOTE]
 >
