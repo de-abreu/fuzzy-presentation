@@ -17,17 +17,20 @@ flake to replicate the tools and configuration used for the presentation itself.
 ### Using Nix Flakes
 
 With [nix installed](https://nixos.org/download/) and
-[flakes enabled](https://nixos.wiki/wiki/flakes), execute the following command
+[flakes enabled](https://nixos.wiki/wiki/flakes), execute the following commands
 in your terminal:
 
 ```bash
-nix run github:de-abreu/fuzzy-presentation
+git clone https://github.com/de-abreu/fuzzy-presentation.git
+cd fuzzy-presentation
+nix develop
+run-presentation
 ```
 
 You might also setup presenterm options as arguments:
 
-```
-nix run github:de-abreu/fuzzy-presentation -- --theme gruvbox-dark
+```bash
+run-presentation --theme gruvbox-dark
 ```
 
 > [!NOTE]
@@ -37,24 +40,32 @@ nix run github:de-abreu/fuzzy-presentation -- --theme gruvbox-dark
 ### Using whichever package manager is supported by your distribution
 
 These are the dependencies of this project, for you to install however you see
-fit:
+fit.
+
+#### Obligatory
 
 | Package     | Version |
 | :---------- | :------ |
 | presenterm  | 0.15.1  |
-| python      | 3.11.15 |
-| weasyprint  | 68.0    |
 | typst       | 0.14.2  |
 | pandoc      | 3.7.0.2 |
 | mermaid-cli | 11.12.0 |
+| swi-prolog  | 9.2.9   |
 
-## Theming
+#### Optional
 
-To change the
-[presentation theming](https://mfontanini.github.io/presenterm/features/themes/introduction.html)
-you can specify a theme to use like so:
+If you would like to
+[export pdfs of the presentation](https://mfontanini.github.io/presenterm/features/exports.html?highlight=export#exporting-presentations)
 
-- `nix run github:de-abreu/sensors-presentation -- gruvbox-dark`
-- or `devenv shell -- run gruvbox-dark`
+| Package    | Version |
+| :--------- | :------ |
+| python     | 3.11.15 |
+| weasyprint | 68.0    |
 
-Where `gruvbox-dark` is the theme name.
+#### Cloning the repository and launching the presentation
+
+```bash
+git clone https://github.com/de-abreu/fuzzy-presentation.git
+cd fuzzy-presentation
+presenterm --config-file config.yaml fuzzy-presentation.md
+```

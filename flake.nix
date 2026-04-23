@@ -26,43 +26,30 @@
           typst
           pandoc
         ];
+
+      presentationScript =
+        pkgs:
+        pkgs.writeShellScriptBin "run-presentation" ''
+          has_config=""
+          for arg in "$@"; do
+            if [ "$arg" = "--config-file" ]; then
+              has_config=1
+              break
+            fi
+          done
+
+          if [ -z "$has_config" ]; then
+            set -- --config-file ${self}/config.yaml "$@"
+          fi
+
+          exec presenterm "$@" "$PWD/fuzzy-presentation.md"
+        '';
     in
     {
       devShells = forEachSystem (pkgs: {
         default = pkgs.mkShell {
-          buildInputs = runtimePackages pkgs;
+          buildInputs = (runtimePackages pkgs) ++ [ (presentationScript pkgs) ];
         };
       });
-
-      apps = forEachSystem (
-        pkgs:
-        let
-          packages = runtimePackages pkgs;
-        in
-        {
-          default = {
-            type = "app";
-            program = toString (
-              pkgs.writeShellScript "run-presentation" ''
-                export PATH="${pkgs.lib.makeBinPath packages}:$PATH"
-
-                has_config=""
-                for arg in "$@"; do
-                  if [ "$arg" = "--config-file" ]; then
-                    has_config=1
-                    break
-                  fi
-                done
-
-                if [ -z "$has_config" ]; then
-                  set -- --config-file ${self}/config.yaml "$@"
-                fi
-
-                exec presenterm "$@" "$PWD/fuzzy-presentation.md"
-              ''
-            );
-          };
-        }
-      );
     };
 }
